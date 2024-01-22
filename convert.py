@@ -4,14 +4,27 @@ from start import lst_stop, lst_see, lst_add, lst_del
 from user_answers import PersonalUser, rand_id
 from user_answers import user
 
+# try:
+#     with open("datafiles/log.txt", "a", encoding="utf-8") as file:
+#         data_message = user_answers.user
+#         file.write(str(data_message) + "\n")
+#         print("Данные успешно были записаны")
+# except FileNotFoundError:
+#     content = "<<< NOT FOUND: файл не найден >>>"
+#     print(content)
+
 try:
     with open("datafiles/log.txt", "a", encoding="utf-8") as file:
         data_message = user_answers.user
         file.write(str(data_message) + "\n")
         print("Данные успешно были записаны")
 except FileNotFoundError:
-    content = "<<< NOT FOUND: файл не найден >>>"
-    print(content)
+    with open("datafiles/log.txt", "w", encoding="utf-8") as file:
+        content = "<<< NOT FOUND: файл не найден, по этому создается новый файл... >>>"
+        file.write(content)
+        data_message = user_answers.user
+        file.write(str(data_message) + "\n")
+        print("Данные были записаны успешно")
 
 while True:
     print("Что вы хотите сделать?")
