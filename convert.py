@@ -43,7 +43,7 @@ while True:
 
     elif user_answer_action in lst_del:
         # Удаление имеющихся данных
-        path = "/dz/datafiles/log.txt"
+        path = "datafiles/log.txt"
         if os.path.exists(path):
             os.remove(path)
             print("Данные успешно удалены")
